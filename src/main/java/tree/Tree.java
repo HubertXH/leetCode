@@ -6,7 +6,7 @@ public class Tree {
 	
 	
 	/**
-	 * 前序遍历二叉树
+	 * preorder traversal
 	 * @param T
 	 */
 	
@@ -24,7 +24,7 @@ public class Tree {
 	}
 	
 	/**
-	 * 中序遍历
+	 * inorder traversal
 	 * @param T
 	 */
 	public void InOrderTraverse(Node T){
@@ -41,7 +41,7 @@ public class Tree {
 	}
 	
 	/**
-	 * 后序遍历
+	 * postorder traversal
 	 * @param T
 	 */
 	public void PostOrderTraverse(Node T){

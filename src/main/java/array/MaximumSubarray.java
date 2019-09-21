@@ -24,18 +24,11 @@ public class MaximumSubarray {
         if (null == nums || nums.length <= 0) {
             return 0;
         }
-        int maxSum = 0;
+        int maxSum = nums[0];
         int temp = 0;
-        for (int i = 0, j = 0; i < nums.length; i++) {
-            if (temp + nums[i] >= temp) {
-                temp = temp + nums[i];
-            } else {
-                j++;
-                temp = nums[j];
-                i = j;
-            }
-            maxSum = maxSum < temp ? temp : maxSum;
-            System.out.println(maxSum + "====|=== i =" + i + ",=| j=" + j + ",temp=" + temp);
+        for (int i = 0; i < nums.length; i++) {
+            temp = temp + nums[i] > nums[i] ? temp + nums[i] : nums[i];
+            maxSum = Math.max(temp, maxSum);
         }
         return maxSum;
     }
