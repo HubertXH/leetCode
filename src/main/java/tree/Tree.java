@@ -2,7 +2,7 @@ package tree;
 
 public class Tree {
 
-	public Node root;
+	public TreeNode root;
 	
 	
 	/**
@@ -10,51 +10,51 @@ public class Tree {
 	 * @param T
 	 */
 	
-	public void PerOrderTraverse(Node T){
+	public void PerOrderTraverse(TreeNode T){
 		
 		if (T == null) {
 			return;
 		}
 		
-		System.out.println(T.date);
+		System.out.println(T.data);
 
-		PerOrderTraverse(T.leftchild);
+		PerOrderTraverse(T.left);
 		
-		PerOrderTraverse(T.rightchild);
+		PerOrderTraverse(T.right);
 	}
 	
 	/**
 	 * inorder traversal
 	 * @param T
 	 */
-	public void InOrderTraverse(Node T){
+	public void InOrderTraverse(TreeNode T){
 		
 		if(T == null){
 			return ;
 		}
 		
-		InOrderTraverse(T.leftchild);
+		InOrderTraverse(T.left);
 		
-		System.out.println(T.date);
+		System.out.println(T.data);
 		
-		InOrderTraverse(T.rightchild);
+		InOrderTraverse(T.right);
 	}
 	
 	/**
 	 * postorder traversal
 	 * @param T
 	 */
-	public void PostOrderTraverse(Node T){
+	public void PostOrderTraverse(TreeNode T){
 		
 		if (T == null) {
 			return;
 		}
 		
-		PostOrderTraverse(T.leftchild);
+		PostOrderTraverse(T.left);
 		
-		PostOrderTraverse(T.rightchild);
+		PostOrderTraverse(T.right);
 		
-		System.out.println(T.date);
+		System.out.println(T.data);
 		
 	}
 	
