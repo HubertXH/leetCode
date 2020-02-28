@@ -1,5 +1,7 @@
 package list;
 
+import Entity.ListNode;
+
 /**
  * Given a sorted linked list, delete all duplicates such that each element appear only once.
  * <p>
