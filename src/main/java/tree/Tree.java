@@ -1,5 +1,7 @@
 package tree;
 
+import Entity.TreeNode;
+
 public class Tree {
 
 	public TreeNode root;

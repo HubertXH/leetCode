@@ -1,5 +1,7 @@
 package tree;
 
+import Entity.TreeNode;
+
 /**
  * No.1315
  * <p>
