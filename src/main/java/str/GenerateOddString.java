@@ -1,7 +1,5 @@
 package str;
 
-import org.apache.commons.lang3.StringUtils;
-
 /**
  * 1374
  * <p>
@@ -55,4 +53,6 @@ public class GenerateOddString {
 
         return result.toString();
     }
+
+
 }

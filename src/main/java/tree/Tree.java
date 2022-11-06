@@ -1,6 +1,6 @@
 package tree;
 
-import Entity.TreeNode;
+import entity.TreeNode;
 
 public class Tree {
 

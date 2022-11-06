@@ -1,7 +1,9 @@
 package array;
 
 /**
- * Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+ * No:53 medium
+ * Given an integer array nums, find the contiguous subarray (containing at least one number)
+ * which has the largest sum and return its sum.
  * <p>
  * Example:
  * <p>
@@ -11,6 +13,8 @@ package array;
  * Follow up:
  * <p>
  * If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+ *
+ * @author Hubert
  */
 public class MaximumSubarray {
 

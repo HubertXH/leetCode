@@ -13,7 +13,7 @@ public class DecompressRunLengthEncodedList {
 
     public int[] decompressRLEList(int[] nums) {
         if (null == nums) {
-            return nums;
+            return null;
         }
         if (nums.length % 2 != 0) {
             return nums;
