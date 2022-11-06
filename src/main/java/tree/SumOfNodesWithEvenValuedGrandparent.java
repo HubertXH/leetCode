@@ -1,6 +1,6 @@
 package tree;
 
-import Entity.TreeNode;
+import entity.TreeNode;
 
 /**
  * No.1315

@@ -5,46 +5,88 @@ import com.alibaba.fastjson.JSON;
 import java.util.Arrays;
 
 /**
- * Given an array nums and a value val, remove all instances of that value in-place and return the new length.
+ * No:27
+ * Easy
+ * Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
  * <p>
- * Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+ * Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
  * <p>
- * The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+ * Return k after placing the final result in the first k slots of nums.
+ * <p>
+ * Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+ * <p>
+ * Custom Judge:
+ * <p>
+ * The judge will test your solution with the following code:
+ * <p>
+ * int[] nums = [...]; // Input array
+ * int val = ...; // Value to remove
+ * int[] expectedNums = [...]; // The expected answer with correct length.
+ * // It is sorted with no values equaling val.
+ * <p>
+ * int k = removeElement(nums, val); // Calls your implementation
+ * <p>
+ * assert k == expectedNums.length;
+ * sort(nums, 0, k); // Sort the first k elements of nums
+ * for (int i = 0; i < actualLength; i++) {
+ * assert nums[i] == expectedNums[i];
+ * }
+ * If all assertions pass, then your solution will be accepted.
+ * <p>
+ * <p>
  * <p>
  * Example 1:
  * <p>
- * Given nums = [3,2,2,3], val = 3,
- * <p>
- * Your function should return length = 2, with the first two elements of nums being 2.
- * <p>
- * It doesn't matter what you leave beyond the returned length.
+ * Input: nums = [3,2,2,3], val = 3
+ * Output: 2, nums = [2,2,_,_]
+ * Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+ * It does not matter what you leave beyond the returned k (hence they are underscores).
  * Example 2:
  * <p>
- * Given nums = [0,1,2,2,3,0,4,2], val = 2,
+ * Input: nums = [0,1,2,2,3,0,4,2], val = 2
+ * Output: 5, nums = [0,1,4,0,3,_,_,_]
+ * Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+ * Note that the five elements can be returned in any order.
+ * It does not matter what you leave beyond the returned k (hence they are underscores).
  * <p>
- * Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.
  * <p>
- * Note that the order of those five elements can be arbitrary.
+ * Constraints:
  * <p>
- * It doesn't matter what values are set beyond the returned length.
- * Clarification:
- * <p>
- * Confused why the returned value is an integer but your answer is an array?
- * <p>
- * Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.
- * <p>
- * Internally you can think of this:
- * <p>
- * // nums is passed in by reference. (i.e., without making a copy)
- * int len = removeElement(nums, val);
- * <p>
- * // any modification to nums in your function would be known by the caller.
- * // using the length returned by your function, it prints the first len elements.
- * for (int i = 0; i < len; i++) {
- * print(nums[i]);
- * }
+ * 0 <= nums.length <= 100
+ * 0 <= nums[i] <= 50
+ * 0 <= val <= 100
+ *
+ * @author Hubert
  */
 public class RemoveElement {
+
+
+    /**
+     * 双指针
+     * 同时用result做标志位判断是否碰到第一个val,
+     */
+    public static int removeElementDoubleIndex(int[] nums, int val) {
+        if (null == nums || nums.length <= 0) {
+            return 0;
+        }
+        int result = 0;
+        int left = 0, right = 0;
+        for (; right < nums.length; right++) {
+            if (val == nums[right]) {
+                result++;
+            }
+            if (result <= 0) {
+                left++;
+                continue;
+            }
+            if (val != nums[right]) {
+                nums[left] = nums[right];
+                nums[right] = -1;
+                left++;
+            }
+        }
+        return result;
+    }
 
     public static int removeElement(int[] nums, int val) {
         if (null == nums || nums.length <= 0) {
@@ -70,6 +112,9 @@ public class RemoveElement {
     }
 
     public static void main(String[] args) {
-        System.out.println(removeElement(new int[]{2}, 3));
+        int[] arrays = new int[]{2, 2, 2, 3, 4, 2, 0, 10, 8, 9, 7, 9, 6, 5, 1, 1};
+//        System.out.println(removeElement(new int[]{2}, 3));
+        System.out.println(removeElementDoubleIndex(arrays, 2));
+        System.out.println(JSON.toJSONString(arrays));
     }
 }

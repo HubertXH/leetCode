@@ -1,6 +1,6 @@
 package tree;
 
-import Entity.TreeNode;
+import entity.TreeNode;
 
 public class BinarySearchTreeGreaterSumTree {
 
@@ -14,8 +14,8 @@ public class BinarySearchTreeGreaterSumTree {
 
 
         bstToGst(root.right);
-        root.number = root.number + tempNum;
-        tempNum = root.number;
+        root.val = root.val + tempNum;
+        tempNum = root.val;
         bstToGst(root.left);
 
         return root;

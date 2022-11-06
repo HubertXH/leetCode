@@ -1,6 +1,6 @@
 package tree;
 
-import Entity.TreeNode;
+import entity.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
