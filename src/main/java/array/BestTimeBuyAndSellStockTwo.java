@@ -65,7 +65,6 @@ public class BestTimeBuyAndSellStockTwo {
                     continue;
                 }
                 if (prices[i] < prices[i + 1]) {
-                    continue;
                 } else {
                     profit += (prices[i] - buyPrice);
                     buyPrice = 0;
