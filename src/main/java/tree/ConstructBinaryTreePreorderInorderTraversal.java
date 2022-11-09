@@ -2,10 +2,14 @@ package tree;
 
 import entity.TreeNode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * No:105. Construct Binary Tree from Preorder and Inorder Traversal
  * Medium
- * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+ * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree
+ * and inorder is the inorder traversal of the same tree, construct and return the binary tree.
  * <p>
  * Example 1:
  * <p>
@@ -32,6 +36,17 @@ import entity.TreeNode;
 public class ConstructBinaryTreePreorderInorderTraversal {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (null == preorder || null == inorder) {
+            return null;
+        }
+        if (preorder.length != inorder.length) {
+            return null;
+        }
+        Map<Integer, Integer> inOrderIndexMap = new HashMap<>(inorder.length);
+        for (int i = 0; i < inorder.length; i++) {
+            inOrderIndexMap.put(inorder[i], i);
+        }
+
         return treeHelper(0, 0, inorder.length - 1, preorder, inorder);
 
     }
