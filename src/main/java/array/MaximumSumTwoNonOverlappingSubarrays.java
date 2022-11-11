@@ -40,6 +40,7 @@ package array;
 public class MaximumSumTwoNonOverlappingSubarrays {
 
     /**
+     * 前缀匹配
      * 先找出一个序列的最大值，然后再遍历循环找下一个序列的最大值，类似贪心算法。
      */
     public int maxSumTwoNoOverlap(int[] nums, int firstLen, int secondLen) {
