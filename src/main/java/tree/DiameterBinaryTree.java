@@ -31,23 +31,31 @@ import entity.TreeNode;
  */
 public class DiameterBinaryTree {
 
+    private int maxPathLength = 0;
+
 
     /**
-     * DFS
+     * DFS&RECURSION
+     *
+     * 求一个二叉树的直径可以理解为计算一个节点下左右两个子节点各自最大深度的和。
+     * 可以采用递归的方式使进行深度遍历优先从叶子节点逐个计算每个计算的直径，在计算的过程找出最大节点直径即可
      */
     public int diameterOfBinaryTree(TreeNode root) {
-
-        int maxPathLength = maxPathCalculate(0, root);
+        maxPathCalculate(root);
         return maxPathLength;
     }
 
-    private int maxPathCalculate(int maxPathLength, TreeNode node) {
+    private int maxPathCalculate(TreeNode node) {
         if (null == node) {
             return 0;
         }
-        int leftLength = maxPathCalculate(maxPathLength, node.left);
-        int rightLength = maxPathCalculate(maxPathLength, node.right);
+        // calculate depth of left node
+        int leftLength = maxPathCalculate(node.left);
+        // calculate depth of right node
+        int rightLength = maxPathCalculate(node.right);
+        // find current node's maxPathLength
         maxPathLength = Math.max(leftLength + rightLength, maxPathLength);
-        return maxPathLength + 1;
+        // find current node maximun of depth
+        return Math.max(leftLength, rightLength) + 1;
     }
 }
