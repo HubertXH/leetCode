@@ -35,7 +35,7 @@ package array;
 public class LongestContinuousIncreasingSubsequence {
 
     /**
-     * 双指针
+     * 双指针,可以获取到最长连续增长数组的的起始下标位
      */
     public static int findLengthOfLCIS(int[] nums) {
         if (null == nums) {
@@ -59,6 +59,33 @@ public class LongestContinuousIncreasingSubsequence {
             }
         }
         System.out.println(resultIndex + ":" + maxLength);
+        return maxLength;
+    }
+
+    /**
+     * 
+     * 一次遍历，使用tempLength记录当前连续自增的子序列长度，
+     * 如果当前元素大于前一个元素则tempLength加一，
+     * 否则从当前元素开始重新计算，将tempLength重置为1
+     * 使用maxLength记录最大连续增长自序列的长度，遍历每个元素时候与tempLength比较取两者中的最大值。
+     */
+    public int findLengthOfLCIS(int[] nums) {
+        if (null == nums) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return 1;
+        }
+        int maxLength = 0;
+        int tempLength = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > nums[i - 1]) {
+                tempLength += 1;
+            } else {
+                tempLength = 1;
+            }
+            maxLength = Math.max(maxLength, tempLength);
+        }
         return maxLength;
     }
 
