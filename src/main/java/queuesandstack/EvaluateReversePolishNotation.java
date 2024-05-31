@@ -47,11 +47,18 @@ import java.util.Stack;
  */
 public class EvaluateReversePolishNotation {
 
+    /**
+     * RPN-逆波兰表达式
+     * 特点：不使用括号就可以表达计算的先后顺序。
+     * 使用栈来进行数学表达式计算。
+     * 在读取表达式的过程中，遇到数字则将数字入栈，如果遇到的是计算符号则将栈顶的元素进行计算，并将结果重新入栈。
+     * 最后返回栈顶的元素即得到最终的值
+     */
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
         for (String str : tokens) {
             if ("+".equals(str)) {
-                stack.add(stack.pop() + stack.peek());
+                stack.add(stack.pop() + stack.pop());
             } else if ("-".equals(str)) {
                 int a = stack.pop();
                 int b = stack.pop();
