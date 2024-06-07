@@ -69,7 +69,7 @@ public class LongestContinuousIncreasingSubsequence {
      * 否则从当前元素开始重新计算，将tempLength重置为1
      * 使用maxLength记录最大连续增长自序列的长度，遍历每个元素时候与tempLength比较取两者中的最大值。
      */
-    public int findLengthOfLCIS(int[] nums) {
+    public int findLengthOfLCIS2(int[] nums) {
         if (null == nums) {
             return 0;
         }
