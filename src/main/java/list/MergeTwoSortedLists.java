@@ -1,9 +1,12 @@
 package list;
 
 import entity.ListNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+ * Merge two sorted linked lists and return it as a new list.
+ * The new list should be made by splicing together the nodes of the first two lists.
  * <p>
  * Example:
  * <p>
@@ -11,6 +14,8 @@ import entity.ListNode;
  * Output: 1->1->2->3->4->4
  */
 public class MergeTwoSortedLists {
+
+    private Logger LOGGER = LoggerFactory.getLogger("MergeTwoSortedLists");
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 

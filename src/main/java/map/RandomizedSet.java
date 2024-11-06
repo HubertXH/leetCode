@@ -46,11 +46,11 @@ public class RandomizedSet {
         }
         int index = map.get(val);
         Integer lastNum = nums.size() > 1 ? nums.get(nums.size() - 1) : null;
-        map.remove(val);
         if (null != lastNum) {
             nums.set(index, lastNum);
             map.put(lastNum, index);
         }
+        map.remove(val);
         nums.remove(nums.size() - 1);
         return true;
     }
@@ -69,12 +69,12 @@ public class RandomizedSet {
         while (operationIndex < operations.length && dataIndex < datas.length) {
             switch (operations[operationIndex]) {
                 case "remove":
-                    rs.remove(datas[dataIndex]);
+                    System.out.println(rs.remove(datas[dataIndex]));
                     operationIndex++;
                     dataIndex++;
                     break;
                 case "insert":
-                    rs.insert(datas[dataIndex]);
+                    System.out.println(rs.insert(datas[dataIndex]));
                     operationIndex++;
                     dataIndex++;
                     break;
